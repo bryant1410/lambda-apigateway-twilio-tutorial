@@ -1,10 +1,10 @@
-#Lambda + API Gateway Example  
+# Lambda + API Gateway Example  
 
 This example uses [Twilio](https://www.twilio.com/) to save an image from your mobile phone to the AWS cloud. A user sends an image using MMS to a Twilio phone number which sends a request to an Amazon API Gateway endpoint that triggers a Lambda function. The app then returns a publicly accessible link to the image in AWS S3. This app uses AWS Lambda, API Gateway, DynamoDB & S3. It is also 100% serverless!
 
 NOTE: The project has been updated to use AWS Serverless Application Model (AWS SAM)
 
-##Architecture
+## Architecture
 
 ![Architecture](https://s3.amazonaws.com/smallya-useast-1/twilio-apig/architecture.png)
 
@@ -189,7 +189,7 @@ Our Lambda function solely returns a string of the SMS body. Here we build the X
 Click Test. At the bottom of the page you view Execution result and the log output in Cloudwatch logs. This is very helpful for debugging.  
     5. Testing API Gateway requires a client that sends requests to the endpoint. I personally like the Chrome Extension [Advanced Rest Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?hl=en-US) Send the endpoint a GET request and view its response. Ensure the S3 link works. You can also test by sending an MMS to phone number and checking the Twilio logs.
 
-##Troubleshooting
+## Troubleshooting
 
 1. Ensure your Lambda function is using the correct IAM role. The role must have the ability to write/read to DynamoDB and S3. 
 2. All Lambda interactions are logged in Cloudwatch logs. View the logs for debugging. 
